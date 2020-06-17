@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Utilitaires;
 
@@ -46,14 +43,16 @@ namespace Quiz
             data.GetStructures();
             DataTable conclu = data.UtilityDataTable;
             data.Dispose();
-            Conclusion conclusion = new Conclusion();
-            conclusion.perfect = conclu.Rows[0]["questionnaire_conclusion1"].ToString();
-            conclusion.excellent = conclu.Rows[0]["questionnaire_conclusion2"].ToString();
-            conclusion.good = conclu.Rows[0]["questionnaire_conclusion3"].ToString();
-            conclusion.average = conclu.Rows[0]["questionnaire_conclusion4"].ToString();
-            conclusion.bad = conclu.Rows[0]["questionnaire_conclusion5"].ToString();
-            conclusion.poor = conclu.Rows[0]["questionnaire_conclusion6"].ToString();
-            conclusion.worst = conclu.Rows[0]["questionnaire_conclusion7"].ToString();
+            Conclusion conclusion = new Conclusion
+            {
+                perfect = conclu.Rows[0]["questionnaire_conclusion1"].ToString(),
+                excellent = conclu.Rows[0]["questionnaire_conclusion2"].ToString(),
+                good = conclu.Rows[0]["questionnaire_conclusion3"].ToString(),
+                average = conclu.Rows[0]["questionnaire_conclusion4"].ToString(),
+                bad = conclu.Rows[0]["questionnaire_conclusion5"].ToString(),
+                poor = conclu.Rows[0]["questionnaire_conclusion6"].ToString(),
+                worst = conclu.Rows[0]["questionnaire_conclusion7"].ToString()
+            };
 
             string jsonSerializedObj = "var init = { 'questions':"+JsonConvert.SerializeObject(json)+ ",'resultComments' :"+ JsonConvert.SerializeObject(conclusion) + "};";
             File.WriteAllText(@"..\..\..\init.js", jsonSerializedObj);
