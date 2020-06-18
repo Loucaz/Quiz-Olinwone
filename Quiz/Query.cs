@@ -8,8 +8,8 @@ namespace Quiz
 {
     class Query
     {
-        public string question = "SELECT question_id,question_valeur FROM quizQUESTION WHERE questionnaire_id=@ID";
-        public string option = "SELECT option_valeur,option_correct,option_rang FROM quizOption WHERE question_id=@ID";
-        public string conclusion = "SELECT questionnaire_conclusion1,questionnaire_conclusion2,questionnaire_conclusion3,questionnaire_conclusion4,questionnaire_conclusion5,questionnaire_conclusion6,questionnaire_conclusion7 FROM quizQUESTIONNAIRE WHERE questionnaire_id=@ID";
+        public string Questions = "SELECT * FROM quizQUESTION WHERE question_questionnaire=@ID order question_rang";
+        public string Options = "SELECT * FROM INNER JOIN quizQUESTION on quizQUESTION.question_id=quizOption.option_question WHERE question_questionnaire=@ID order by question_rang,option_rang";
+        public string Questionnaire = "SELECT * FROM quizQUESTIONNAIRE WHERE questionnaire_id=@ID";
     }
 }
