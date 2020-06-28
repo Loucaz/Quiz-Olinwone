@@ -42,9 +42,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Utilitaires">
-      <HintPath>..\..\Olinwone\Utilitaires\bin\Debug\Utilitaires.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -59,6 +56,9 @@
       <Project>{923f3b00-766f-4b4c-9e24-3b37e5a02e23}</Project>
       <Name>Quiz</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

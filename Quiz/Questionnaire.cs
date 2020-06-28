@@ -21,13 +21,13 @@ namespace Quiz
         Query Requetes = new Query();
         bool CheckChargement;
         Snippets adnTools = new Snippets();
-        int id;
-        string dsn;
+        int id=1;
+        string dsn= "Server=LOUCAZ\\SQLEXPRESS;User Id=user;Password=1234;";
 
         public Questionnaire()
         {
-            dsn = Context.Application["dsn"].ToString();
-            ChargeProprietes((DataTable)Context.Application["composants"]);
+            //dsn = Context.Application["dsn"].ToString();
+            //ChargeProprietes((DataTable)Context.Application["composants"]);
 
             //Chargement de données
             DataOlinwone = new DataServices(dsn);
@@ -92,6 +92,7 @@ namespace Quiz
             DataOlinwone.GetStructures();
             DataTable resultat = DataOlinwone.UtilityDataTable;
             CheckChargement = DataOlinwone.UtilityDataExiste;
+
             DataOlinwone.CloseCommand();
             return resultat;
         }
