@@ -1,0 +1,4 @@
+﻿@Code
+    ' Modifier le Chemin de disposition ci-dessous afin d'harmoniser l'apparence de la page d'assistance à celle de vos pages Web existantes
+    Layout = "~/Views/Shared/_Layout.vbhtml"
+End Code
