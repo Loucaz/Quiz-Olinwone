@@ -11,8 +11,9 @@
 
     <div class="row">
        
-            <WQ:Questionnaire id="test" runat="server">
+            <WQ:Questionnaire runat="server">
             </WQ:Questionnaire>
+        
     </div>
 
 </asp:Content>

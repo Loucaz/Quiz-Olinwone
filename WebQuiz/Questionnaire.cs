@@ -38,11 +38,15 @@ namespace WebQuiz
         Query Requetes = new Query();
         bool CheckChargement;
         Snippets adnTools = new Snippets();
-        int id = 1;
-        string dsn = "Server=LOUCAZ\\SQLEXPRESS;User Id=user;Password=1234;";
+        int id;
+        string dsn;
 
         public Questionnaire()
         {
+            id = 1;
+            dsn = "Server=LOUCAZ\\SQLEXPRESS;User Id=user;Password=1234;";
+            QuestionnairePath = "@C:\\Users\\Loucaz\\source\\repos\\Quiz\\WebApplication3\\jquizzy\\init.js";
+            QuestionnaireUrl = "@https://localhost:44393/jquizzy/jquizzy.htm";
             //dsn = Context.Application["dsn"].ToString();
             //ChargeProprietes((DataTable)Context.Application["composants"]);
 
@@ -97,9 +101,10 @@ namespace WebQuiz
                 //Génération du fichier
                 string jsonSerializedObj = "var init = { 'questions':" + JsonConvert.SerializeObject(json) + ",'resultComments' :" + JsonConvert.SerializeObject(conclusion) + "};";
                 //generation automatiquement le nom
-                File.WriteAllText(@"..\..\..\init.js", jsonSerializedObj);
+                File.WriteAllText(QuestionnairePath, jsonSerializedObj);
             }
-            Text = $"<script>https://...</script>";
+            Text = $"<a href=\""+QuestionnaireUrl+ "\">Quiz</a>";
+
         }
 
         private DataTable ChargeData(string req, int id)
